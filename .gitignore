@@ -1,0 +1,73 @@
+# ================================
+# .NET
+# ================================
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# Rider / VS / VS Code
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ================================
+# OS
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# Environment variables
+# ================================
+.env
+!.env.example
+
+# ================================
+# Docker
+# ================================
+**/docker-data/
+postgres_data/
+
+# ================================
+# Node / Expo (ileride frontend için)
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.expo/
+.expo-shared/
+dist/
+
+# ================================
+# React Native
+# ================================
+ios/Pods/
+android/.gradle/
+android/app/build/
+
+# ================================
+# Test / Coverage
+# ================================
+coverage/
+TestResults/
+
+# ================================
+# Logs
+# ================================
+logs/
+*.log
+# ================================
+# ASP.NET Core settings
+# ================================
+appsettings.*.json
+!appsettings.Example.json
+# ================================
+# EF Core
+# ================================
+**/Migrations/*.Designer.cs
+**/Migrations/*.cs
