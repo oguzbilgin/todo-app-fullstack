@@ -1,50 +1,192 @@
-# Welcome to your Expo app 👋
+# TodoApp Mobile
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A production-ready **mobile Todo application** built with **React Native (Expo)** and **TypeScript**, designed to consume a backend API built with **Clean Architecture** and **JWT-based authentication**.
 
-## Get started
+This project focuses on **clean architecture on the client**, **predictable state management**, and a **modern mobile UX**, while implementing **only the features supported by the backend**.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 📱 App Overview
 
-2. Start the app
+The mobile application allows users to:
 
-   ```bash
-   npx expo start
-   ```
+- Authenticate securely (Sign in)
+- View active todos
+- Create new todos
+- Mark todos as completed
+- View completed todo history
 
-In the output, you'll find options to open the app in a
+The app is built using **Expo Router** and follows a **mobile-first, API-driven design**.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## ✨ Features
 
-## Get a fresh project
+- 🔐 JWT-based authentication
+- 📝 Create todos
+- 📋 View active todos
+- ✅ Complete todos
+- 📂 View completed todos
+- 🧠 Centralized state management
+- 🎨 Consistent card-based UI
+- 📱 iOS & Android support via Expo
 
-When you're ready, run:
+> Only features supported by the backend API are implemented — no mock or extra client-only functionality.
 
-```bash
-npm run reset-project
+---
+
+## 🧠 Architecture & Design Principles
+
+### Key goals
+- Feature-based routing with Expo Router
+- Clear separation between UI, state, and API layers
+- Reusable components
+- Predictable global state
+- Clean and readable codebase
+
+---
+
+## 🗂️ Folder Structure
+```
+mobile/
+├── app/ # Expo Router pages
+│ ├── (tabs)/
+│ │ ├── _layout.tsx # Bottom tab navigation
+│ │ ├── index.tsx # Home (Active Todos)
+│ │ ├── add-todo.tsx # Add new todo
+│ │ └── completed-todos.tsx # Completed todos
+│ │
+│ ├── auth/
+│ │ ├── _layout.tsx # Auth layout
+│ │ └── index.tsx # Sign In screen
+│ │
+│ ├── _layout.tsx # Root layout
+│ └── index.tsx # App entry / redirect
+│
+├── src/
+│ ├── components/
+│ │ └── TodoItem.tsx # Reusable todo item component
+│ │
+│ ├── config/
+│ │ └── tamagui.config.ts # Tamagui configuration
+│ │
+│ ├── lib/
+│ │ └── api.ts # API client & HTTP logic
+│ │
+│ └── store/
+│ ├── auth.store.ts # Authentication state
+│ └── todo.store.ts # Todo state & actions
+│
+├── assets/ # Static assets
+├── app.json
+├── babel.config.js
+├── eslint.config.js
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+---
+## 🛠️ Tech Stack
+
+### Mobile
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+
+### UI & Styling
+- Tamagui
+- Lucide Icons
+- Custom design tokens
+
+### State Management
+- Zustand
+
+### Networking
+- Axios
+- JWT Bearer authentication
+
+---
+
+## 🔐 Authentication Flow
+
+1. User signs in
+2. Backend returns a JWT access token
+3. Token is stored in the auth store
+4. Protected requests include:
+5. User session is validated on app load
+
+---
+
+## 🔄 API Integration
+
+The mobile app communicates with the backend via REST endpoints.
+
+### Authentication
+- Sign in
+
+### Todos
+- Fetch active todos
+- Add new todo
+- Complete todo
+- Fetch completed todos
+
+> User identity is fully derived from JWT claims — no userId is sent from the client.
+
+---
+
+## 🎨 UI & UX Notes
+
+- Mobile-first design
+- Card-based layout with subtle shadows
+- Clear hierarchy and spacing
+- Focus on clarity and ease of use
+- UI strictly matches implemented backend functionality
+
+---
+
+## ⚙️ Environment Setup
+
+Create a `.env` file in the `mobile` directory:
+```
+EXPO_PUBLIC_API_URL=http://localhost:5197
+```
+> Ensure the backend API is running before starting the app.
+
+---
+
+## 🚀 Getting Started
+
+### Install dependencies
+```
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Start the app
+```
+npx expo start
+```
+Run on:
+- iOS Simulator
+- Android Emulator
+- Physical device via Expo Go
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📌 Notes
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Authentication is required for all todo operations
+- No local or mock data is used
+- State is fully API-driven
+- Designed as a portfolio-quality mobile application
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## License
+This project is licensed under the MIT License.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 👤 Author
+**Oğuzhan Bilgin**
+- [Github](https://github.com/oguzbilgin)
+- [LinkedIn](https://www.linkedin.com/in/oguzhanbilgin/)
+---
